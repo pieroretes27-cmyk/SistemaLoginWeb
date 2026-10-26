@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Fit - Dashboard CRUD y Ventas</title>
+    <title>Smart Fit - Dashboard CRUD Dinámico</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -21,10 +21,6 @@
             background-color: #1a1a1a;
             border: 1px solid #444;
             border-radius: 10px;
-        }
-        .table-dark-custom {
-            background-color: #1a1a1a;
-            color: #fff;
         }
         .btn-warning {
             background-color: #ffc107;
@@ -47,15 +43,6 @@
             color: #fff;
             box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
         }
-        .nav-tabs .nav-link {
-            color: #aaa;
-            border: none;
-        }
-        .nav-tabs .nav-link.active {
-            background-color: #1a1a1a;
-            color: #ffc107;
-            border-bottom: 2px solid #ffc107;
-        }
     </style>
 </head>
 <body>
@@ -64,179 +51,91 @@
     <nav class="navbar navbar-expand-lg navbar-dark px-4">
         <a class="navbar-brand text-warning fw-bold" href="#">SMART FIT <span class="text-white fs-6">| Sede San Borja</span></a>
         <div class="ms-auto d-flex align-items-center">
-            <span class="text-muted me-3">Recepción: <strong>Pieritixs</strong></span>
+            <span class="text-muted me-3">Usuario: <strong>Recepcion</strong></span>
             <a href="index.html" class="btn btn-outline-warning btn-sm">Cerrar Sesión</a>
         </div>
     </nav>
 
-    <!-- Contenido Principal con Pestañas -->
-    <div class="container my-4">
-        
-        <!-- Pestañas de Navegación del Sistema -->
-        <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active fw-bold" id="usuarios-tab" data-bs-toggle="tab" data-bs-target="#usuarios-pane" type="button" role="tab"><i class="bi bi-people-fill"></i> Gestión de Miembros y CRUD</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link fw-bold" id="ventas-tab" data-bs-toggle="tab" data-bs-target="#ventas-pane" type="button" role="tab"><i class="bi bi-cart-check-fill"></i> Proceso de Ventas (Cabecera / Detalle)</button>
-            </li>
-        </ul>
-
-        <div class="tab-content" id="dashboardTabsContent">
-            
-            <!-- PESTAÑA 1: CRUD DE USUARIOS / MIEMBROS -->
-            <div class="tab-pane fade show active" id="usuarios-pane" role="tabpanel">
-                <div class="row mb-4 align-items-center">
-                    <div class="col-md-8">
-                        <h2>Control de Membresías y Acceso</h2>
-                        <p class="text-muted mb-0">Administración de estados, planes y restricciones (Patrón Repository activo)</p>
-                    </div>
-                    <div class="col-md-4 text-end">
-                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalNuevoUsuario">
-                            <i class="bi bi-person-plus-fill"></i> Nuevo Miembro
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Tabla CRUD -->
-                <div class="card card-custom p-4 shadow">
-                    <div class="table-responsive">
-                        <table class="table table-dark table-hover align-middle mb-0">
-                            <thead>
-                                <tr class="text-warning">
-                                    <th>ID</th>
-                                    <th>Nombres</th>
-                                    <th>Correo</th>
-                                    <th>Membresía</th>
-                                    <th>Estado</th>
-                                    <th class="text-center">Acciones CRUD</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Piero Retes</td>
-                                    <td>piero@smartfit.com</td>
-                                    <td>Black Plan</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                    <td class="text-center">
-                                        <button class="btn btn-sm btn-primary me-1" title="Editar" onclick="alert('Modo edición habilitado para Piero Retes')"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-sm btn-danger me-1" title="Eliminar" onclick="confirm('¿Desea eliminar este registro?')"><i class="bi bi-trash-fill"></i></button>
-                                        <button class="btn btn-sm btn-secondary" title="Suspender / Cambiar Estado" onclick="alert('Estado cambiado a Suspendido')"><i class="bi bi-lock-fill"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Maria Gomez</td>
-                                    <td>maria@smartfit.com</td>
-                                    <td>Plan Smart</td>
-                                    <td><span class="badge bg-danger">Bloqueado</span></td>
-                                    <td class="text-center">
-                                        <button class="btn btn-sm btn-primary me-1" title="Editar"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-sm btn-danger me-1" title="Eliminar"><i class="bi bi-trash-fill"></i></button>
-                                        <button class="btn btn-sm btn-warning text-dark" title="Desbloquear" onclick="alert('Usuario desbloqueado exitosamente')"><i class="bi bi-unlock-fill"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <!-- Contenido Principal -->
+    <div class="container my-5">
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-8">
+                <h2>Gestión de Membresías y Usuarios</h2>
+                <p class="text-muted">Control y administración en tiempo real</p>
             </div>
-
-            <!-- PESTAÑA 2: PROCESO DE VENTAS (CABECERA / DETALLE) -->
-            <div class="tab-pane fade" id="ventas-pane" role="tabpanel">
-                <div class="row mb-4">
-                    <div class="col-md-12">
-                        <h2>Módulo Transaccional de Ventas (SOLPED / Facturación)</h2>
-                        <p class="text-muted">Registro seguro con transacciones JDBC Batch y control de integridad (Rollback)</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Formulario de Venta -->
-                    <div class="col-md-7">
-                        <div class="card card-custom p-4 shadow">
-                            <h5 class="text-warning mb-3"><i class="bi bi-receipt"></i> Nueva Transacción de Membresía</h5>
-                            <form onsubmit="event.preventDefault(); alert('Venta procesada con éxito. Transacción consolidada en Base de Datos MySQL.');">
-                                <div class="mb-3">
-                                    <label class="form-label text-warning">SELECCIONAR CLIENTE</label>
-                                    <select class="form-select" required>
-                                        <option value="">-- Elija un miembro --</option>
-                                        <option value="1">Piero Retes (DNI: 74839210)</option>
-                                        <option value="2">Maria Gomez (DNI: 45892134)</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label text-warning">PLAN BASE / SERVICIO EXTRAS</label>
-                                    <select class="form-select" required>
-                                        <option value="">-- Seleccionar Plan o Adicional --</option>
-                                        <option value="black">Black Plan (Acceso total + Silla de masajes) - S/. 99.90</option>
-                                        <option value="smart">Plan Smart (Acceso a sede única) - S/. 69.90</option>
-                                        <option value="extra">Pack Hidratación y Toallas - S/. 20.00</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label text-warning">TIPO DE COMPROBANTE</label>
-                                    <select class="form-select" required>
-                                        <option value="boleta">Boleta de Venta electrónica</option>
-                                        <option value="factura">Factura</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-warning w-100 py-2"><i class="bi bi-check-circle-fill"></i> REGISTRAR VENTA Y EMITIR COMPROBANTE</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Resumen del Carrito / Transacción -->
-                    <div class="col-md-5">
-                        <div class="card card-custom p-4 shadow">
-                            <h5 class="text-warning mb-3"><i class="bi bi-cart3"></i> Resumen de la Transacción</h5>
-                            <ul class="list-group list-group-flush bg-transparent mb-3">
-                                <li class="list-group-item bg-transparent text-white d-flex justify-content-between">
-                                    <span>Plan Seleccionado:</span>
-                                    <strong class="text-warning">Black Plan</strong>
-                                </li>
-                                <li class="list-group-item bg-transparent text-white d-flex justify-content-between">
-                                    <span>Servicios Extra:</span>
-                                    <span>Hidratación ilimitada</span>
-                                </li>
-                                <li class="list-group-item bg-transparent text-white d-flex justify-content-between border-top border-secondary pt-3">
-                                    <span class="fs-5">Total a Pagar:</span>
-                                    <strong class="text-success fs-5">S/. 119.90</strong>
-                                </li>
-                            </ul>
-                            <div class="alert alert-dark border border-warning text-muted small mb-0">
-                                <i class="bi bi-shield-check text-warning"></i> Operación protegida por control de concurrencia y patrón Singleton.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-4 text-end">
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalNuevo">
+                    <i class="bi bi-person-plus-fill"></i> Nuevo Usuario
+                </button>
             </div>
+        </div>
 
+        <!-- Tabla CRUD Dinámica -->
+        <div class="card card-custom p-4 shadow">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0" id="tablaUsuarios">
+                    <thead>
+                        <tr class="text-warning">
+                            <th>ID</th>
+                            <th>Nombres</th>
+                            <th>Correo</th>
+                            <th>Membresía</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Piero Retes</td>
+                            <td>piero@smartfit.com</td>
+                            <td>Black Plan</td>
+                            <td><span class="badge bg-success estado-badge">Activo</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-primary me-1" onclick="abrirEditar(this)" title="Editar"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-sm btn-danger me-1" onclick="eliminarFila(this)" title="Eliminar"><i class="bi bi-trash-fill"></i></button>
+                                <button class="btn btn-sm btn-secondary" onclick="cambiarEstadoFila(this)" title="Cambiar Estado"><i class="bi bi-lock-fill"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Maria Gomez</td>
+                            <td>maria@smartfit.com</td>
+                            <td>Plan Smart</td>
+                            <td><span class="badge bg-danger estado-badge">Bloqueado</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-primary me-1" onclick="abrirEditar(this)" title="Editar"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-sm btn-danger me-1" onclick="eliminarFila(this)" title="Eliminar"><i class="bi bi-trash-fill"></i></button>
+                                <button class="btn btn-sm btn-warning text-dark" onclick="cambiarEstadoFila(this)" title="Cambiar Estado"><i class="bi bi-unlock-fill"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <!-- Modal para Nuevo Usuario / Miembro -->
-    <div class="modal fade" id="modalNuevoUsuario" tabindex="-1" aria-hidden="true">
+    <!-- Modal Nuevo Usuario -->
+    <div class="modal fade" id="modalNuevo" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-white border border-warning">
                 <div class="modal-header border-secondary">
-                    <h5 class="modal-title text-warning"><i class="bi bi-person-plus"></i> Registrar Nuevo Miembro</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title text-warning"><i class="bi bi-person-plus"></i> Registrar Nuevo Usuario</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="event.preventDefault(); alert('Miembro registrado correctamente en el sistema.'); location.reload();">
+                    <form id="formNuevo" onsubmit="agregarUsuario(event)">
                         <div class="mb-3">
                             <label class="form-label text-warning">NOMBRES Y APELLIDOS</label>
-                            <input type="text" class="form-control" required placeholder="Ej. Carlos Mendoza">
+                            <input type="text" id="nuevoNombre" class="form-control" required placeholder="Ej. Carlos Mendoza">
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-warning">CORREO ELECTRÓNICO</label>
-                            <input type="email" class="form-control" required placeholder="carlos@smartfit.com">
+                            <input type="email" id="nuevoCorreo" class="form-control" required placeholder="carlos@smartfit.com">
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-warning">TIPO DE MEMBRESÍA</label>
-                            <select class="form-select">
+                            <select id="nuevoPlan" class="form-select">
                                 <option>Black Plan</option>
                                 <option>Plan Smart</option>
                             </select>
@@ -248,7 +147,123 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS Bundle -->
+    <!-- Modal Editar Usuario -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white border border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-warning"><i class="bi bi-pencil-square"></i> Editar Miembro</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditar" onsubmit="guardarEdicion(event)">
+                        <div class="mb-3">
+                            <label class="form-label text-warning">NOMBRES Y APELLIDOS</label>
+                            <input type="text" id="editNombre" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-warning">CORREO ELECTRÓNICO</label>
+                            <input type="email" id="editCorreo" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-warning">TIPO DE MEMBRESÍA</label>
+                            <select id="editPlan" class="form-select">
+                                <option>Black Plan</option>
+                                <option>Plan Smart</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">ACTUALIZAR CAMBIOS</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap y lógica CRUD dinámica -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let filaEnEdicion = null;
+        let contadorId = 3;
+
+        // Función para Agregar Usuario
+        function agregarUsuario(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nuevoNombre').value;
+            const correo = document.getElementById('nuevoCorreo').value;
+            const plan = document.getElementById('nuevoPlan').value;
+
+            const tbody = document.querySelector('#tablaUsuarios tbody');
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `
+                <td>${contadorId++}</td>
+                <td>${nombre}</td>
+                <td>${correo}</td>
+                <td>${plan}</td>
+                <td><span class="badge bg-success estado-badge">Activo</span></td>
+                <td class="text-center">
+                    <button class="btn btn-sm btn-primary me-1" onclick="abrirEditar(this)" title="Editar"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-sm btn-danger me-1" onclick="eliminarFila(this)" title="Eliminar"><i class="bi bi-trash-fill"></i></button>
+                    <button class="btn btn-sm btn-secondary" onclick="cambiarEstadoFila(this)" title="Cambiar Estado"><i class="bi bi-lock-fill"></i></button>
+                </td>
+            `;
+            tbody.appendChild(nuevaFila);
+
+            // Limpiar formulario y cerrar modal
+            document.getElementById('formNuevo').reset();
+            bootstrap.Modal.getInstance(document.getElementById('modalNuevo')).hide();
+        }
+
+        // Función para abrir el modal de Edición cargando sus datos actuales
+        function abrirEditar(btn) {
+            filaEnEdicion = btn.closest('tr');
+            const celdas = filaEnEdicion.querySelectorAll('td');
+
+            document.getElementById('editNombre').value = celdas[1].innerText;
+            document.getElementById('editCorreo').value = celdas[2].innerText;
+            document.getElementById('editPlan').value = celdas[3].innerText;
+
+            const modal = new bootstrap.Modal(document.getElementById('modalEditar'));
+            modal.show();
+        }
+
+        // Función para Guardar los cambios de la Edición
+        function guardarEdicion(event) {
+            event.preventDefault();
+            if (filaEnEdicion) {
+                const celdas = filaEnEdicion.querySelectorAll('td');
+                celdas[1].innerText = document.getElementById('editNombre').value;
+                celdas[2].innerText = document.getElementById('editCorreo').value;
+                celdas[3].innerText = document.getElementById('editPlan').value;
+            }
+            bootstrap.Modal.getInstance(document.getElementById('modalEditar')).hide();
+        }
+
+        // Función para Eliminar Fila
+        function eliminarFila(btn) {
+            if (confirm('¿Está seguro de eliminar este registro del sistema?')) {
+                const fila = btn.closest('tr');
+                fila.remove();
+            }
+        }
+
+        // Función para cambiar estado (Activo / Bloqueado)
+        function cambiarEstadoFila(btn) {
+            const fila = btn.closest('tr');
+            const badge = fila.querySelector('.estado-badge');
+            if (badge.classList.contains('bg-success')) {
+                badge.classList.remove('bg-success');
+                badge.classList.add('bg-danger');
+                badge.innerText = 'Bloqueado';
+                btn.className = 'btn btn-sm btn-warning text-dark';
+                btn.innerHTML = '<i class="bi bi-unlock-fill"></i>';
+            } else {
+                badge.classList.remove('bg-danger');
+                badge.classList.add('bg-success');
+                badge.innerText = 'Activo';
+                btn.className = 'btn btn-sm btn-secondary';
+                btn.innerHTML = '<i class="bi bi-lock-fill"></i>';
+            }
+        }
+    </script>
 </body>
 </html>
