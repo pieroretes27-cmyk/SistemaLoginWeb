@@ -58,16 +58,16 @@
         <h2 class="text-warning fw-bold mb-1">SMART FIT</h2>
         <p class="text-muted small mb-4">Gestión de Registro de Membresías</p>
 
-        <!-- Formulario visual para la web estática -->
-        <form onsubmit="event.preventDefault(); alert('Vista de presentación en línea. La conexión con Base de Datos MySQL y Servlets opera de forma local.');">
+        <!-- Redirige automáticamente al dashboard.html -->
+        <form action="dashboard.html" method="GET">
             <div class="mb-3 text-start">
                 <label class="form-label">USUARIO / RECEPCIÓN</label>
-                <input type="text" class="form-control" required placeholder="Ingrese su usuario">
+                <input type="text" class="form-control" required placeholder="Ingrese su usuario" value="Recepcion">
             </div>
             
             <div class="mb-4 text-start">
                 <label class="form-label">CONTRASEÑA</label>
-                <input type="password" class="form-control" required placeholder="********">
+                <input type="password" class="form-control" required placeholder="********" value="1234">
             </div>
 
             <button type="submit" class="btn btn-warning w-100 py-2 mb-3">INGRESAR AL SISTEMA</button>
