@@ -1,0 +1,8 @@
+com\mycompany\sistemaloginweb\UsuarioRepositoryImpl.class
+com\mycompany\sistemaloginweb\resources\JakartaEE8Resource.class
+com\mycompany\sistemaloginweb\LoginServlet.class
+com\mycompany\sistemaloginweb\Usuario.class
+com\mycompany\sistemaloginweb\Conexion.class
+com\mycompany\sistemaloginweb\IUsuarioRepository.class
+com\mycompany\sistemaloginweb\UsuarioDAO.class
+com\mycompany\sistemaloginweb\JakartaRestConfiguration.class
